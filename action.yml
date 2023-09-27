@@ -1,0 +1,19 @@
+# action.yml
+name: 'Build Go Image'
+author: 'Sky'
+description: 'Use alpine go build go main'
+inputs:
+  main-dir-path:
+    description: 'repo root dir to main.go dir.'
+    required: true
+  ci-github-token:
+    description: 'github token has enough right for go mod to get dependance.'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.main-dir-path }}
+    - ${{ inputs.ci-github-token}}
+  
