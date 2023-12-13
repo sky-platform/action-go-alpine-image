@@ -6,6 +6,7 @@ GITHUB_TOKEN="${GITHUB_TOKEN:-$2}"
 apk update
 apk add git
 [[ ! -z "${GITHUB_TOKEN// }" ]] && git config --global url."https://${GITHUB_TOKEN}@github.com/sky-platform/".insteadOf "https://github.com/sky-platform/"
+[[ ! -z "${GITHUB_TOKEN// }" ]] && git config --global url."https://${GITHUB_TOKEN}@github.com/wegdevio/".insteadOf "https://github.com/wegdevio/"
 
 go mod tidy
 go build -o ${MAIN_DIR_PARH}/main ${MAIN_DIR_PARH}/main.go
